@@ -17,7 +17,7 @@
 
 - todo
 
-## Proposed Methods/Approaches
+## Proposed Method/Approach
 
 - todo
 
@@ -27,7 +27,7 @@
 ## Weekly Schedule
 
 - **2020.11.10 - 2020.11.15 (ongoing)**
-  - Search relevant data sets that we want to work on
+  - Identify the problem that we want to work on and search relevant data sets
     - Weili He, Xianbo Gao, Jiangfeng Lin
   - Read related literature in the field and look for spatial profiling tools that we can use in the project
     - Weili He, Xianbo Gao, Jiangfeng Lin
