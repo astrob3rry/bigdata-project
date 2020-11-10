@@ -1,7 +1,0 @@
-your choice for the project, 
-previous work and references, 
-problem description and goal, 
-the data sets you will use, 
-the method/approach you propose, 
-evaluation criteria,
-week-by-week schedule with milestones for the different group members.
