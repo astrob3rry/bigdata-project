@@ -34,7 +34,7 @@ In the mean time, we read some relevant papers regarding data profiling and clea
 
 ## Problem Description and Goal
 
-Open data often comes with little or no metadata, which makes it difficult to search for and find relevant datasets for a given information need. Therefore, the main goal for our project is to figure out a reliable and accurate way to provide informative summaries on spatial data for open data.
+Open data often comes with little or no metadata, which makes it difficult to search for and find relevant datasets for a given information need. Therefore, the main goal for our project is to figure out a reliable and accurate way to provide informative summaries on spatial data for open datasets.
 
 ## Data Sets
 
@@ -49,27 +49,33 @@ We have a sample size of 150, and all the datasets are selected from [NYC Open D
 
 ## Weekly Schedule
 
-### Week 0: 2020.11.10 - 2020.11.15
+### Week 0: 2020.11.10 - 2020.11.15 ![done](https://progress-bar.dev/100/?title=done)
 
-####  ![done](https://progress-bar.dev/100/?title=done)
+- :heavy_check_mark: Identify the problem that we want to work on and start searching relevant data sets. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry) 
 
-- Identify the problem that we want to work on and start searching relevant data sets. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry) :heavy_check_mark:
+- :heavy_check_mark: ​Read related literature in the field and look for spatial profiling tools that we can use in the project. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry) 
 
-- Read related literature in the field and look for spatial profiling tools that we can use in the project. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry) :heavy_check_mark:
-
-### Week 1: 2020.11.16 - 2020.11.22 (ongoing)
-
-#### ![q](https://progress-bar.dev/0/?title=in progress)
+### Week 1: 2020.11.16 - 2020.11.22 ![ongoing](https://progress-bar.dev/30/?title=ongoing)
 
 - Select 50 datasets that contain spatial data from NYC Open Data. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
-- Try Datamart Profiler and see how it performs on spatial data profiling. ​[@Weili He](https://github.com/WeiliHe)
-- Check out other methods and roughly measure its performance on spatial data profiling. [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
-- Ask professor following questions: [@Jiangfeng Lin](https://github.com/astrob3rry)
+- Try existing data profiling methods on a few datasets, and roughly measure the precision based on the self-defined metrics. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
+- :heavy_check_mark: Ask professor following questions: [@Jiangfeng Lin](https://github.com/astrob3rry) 
   - We need to manually inspect all the datasets first, but how do we decide what to inspect? Are the information listed on the project description enough?
+
+    <u>*We can decide what to inspect on our own.*</u>
+
   - How should we calculate precision and recall? What are these terms exactly?
+
+    <u>*Based on the metrics we choose, and the inspection result we get, we should be able to calculate the precision for each tool.*</u>
+
   - Do we have to come up with a solution on our own? Is it fine that we just simply use another tool and make comparison?
+
+    <u>*Simply comparing two tools isn’t enough. The main focus should be trying to improve the exisitng tool.*</u>
+
   - How do we incorporate Hadoop and Spark into our solution?
-- :star: **Bonus task**: Find tools to identify data quality issues and help generate data quality report. Also, the tools that can geocode the location information for the datasets without latitude and longitude. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
+
+    <u>*We can set up several worker nodes, and have each of them processing a portion of datasets. However, we should take extra care of load balancing.*</u>
+- :star: **Bonus task**: Find tools that can help identify data quality issues and generate data quality report. Also, look for tools that can geocode the location information for the datasets without latitude and longitude. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
 
 ### Week 2: 2020.11.23 - 2020.11.29
 
