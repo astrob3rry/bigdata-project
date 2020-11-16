@@ -49,28 +49,27 @@ We have a sample size of 150, and all the datasets are selected from [NYC Open D
 
 ## Weekly Schedule
 
-### Week 0:  2020.11.10 - 2020.11.15
+### Week 0: 2020.11.10 - 2020.11.15
 
-#### Plan
+####  ![done](https://progress-bar.dev/100/?title=done)
 
-- Identify the problem that we want to work on and start searching relevant data sets. (Weili He, Xianbo Gao, Jiangfeng Lin)​ :white_check_mark:
+- Identify the problem that we want to work on and start searching relevant data sets. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry) :heavy_check_mark:
 
-- Read related literature in the field and look for spatial profiling tools that we can use in the project. (Weili He, Xianbo Gao, Jiangfeng Lin) :white_check_mark:
+- Read related literature in the field and look for spatial profiling tools that we can use in the project. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry) :heavy_check_mark:
 
-#### Comments
+### Week 1: 2020.11.16 - 2020.11.22 (ongoing)
 
-- We need to manually inspect all the datasets first, but how do we decide what to inspect? Are the information listed on the project description enough?
-- How should we calculate precision and recall? What are these terms exactly?
-- How do we incorporate Hadoop and Spark into our solution?
+#### ![q](https://progress-bar.dev/0/?title=in progress)
 
-### Week 1: 2020.11.16 - 2020.11.22  (ongoing)
-
-#### Plan
-
-- Select 50 datasets that contain spatial data from [NYC Open Data](https://opendata.cityofnewyork.us). (Weili He, Xianbo Gao, Jiangfeng Lin)
-- Try [Datamart Profiler](https://pypi.org/project/datamart-profiler) and see how it performs on spatial data profiling. (Weili He)
-- Check out other methods and roughly measure its performance on spatial data profiling. (Xianbo Gao, Jiangfeng Lin)
-- :star: Bonus task: Find tools to identify data quality issues and help generate data quality report. Also, the tools that can geocode the location information for the datasets without latitude and longitude.
+- Select 50 datasets that contain spatial data from NYC Open Data. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
+- Try Datamart Profiler and see how it performs on spatial data profiling. ​[@Weili He](https://github.com/WeiliHe)
+- Check out other methods and roughly measure its performance on spatial data profiling. [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
+- Ask professor following questions: [@Jiangfeng Lin](https://github.com/astrob3rry)
+  - We need to manually inspect all the datasets first, but how do we decide what to inspect? Are the information listed on the project description enough?
+  - How should we calculate precision and recall? What are these terms exactly?
+  - Do we have to come up with a solution on our own? Is it fine that we just simply use another tool and make comparison?
+  - How do we incorporate Hadoop and Spark into our solution?
+- :star: **Bonus task**: Find tools to identify data quality issues and help generate data quality report. Also, the tools that can geocode the location information for the datasets without latitude and longitude. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
 
 ### Week 2: 2020.11.23 - 2020.11.29
 
