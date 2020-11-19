@@ -55,10 +55,12 @@ We have a sample size of 150, and all the datasets are selected from [NYC Open D
 
 - :heavy_check_mark: ​Read related literature in the field and look for spatial profiling tools that we can use in the project. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry) 
 
-### Week 1: 2020.11.16 - 2020.11.22 ![ongoing](https://progress-bar.dev/30/?title=ongoing)
+### Week 1: 2020.11.16 - 2020.11.22 ![ongoing](https://progress-bar.dev/40/?title=ongoing)
 
 - Select 50 datasets that contain spatial data from NYC Open Data. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
+
 - Try existing data profiling methods on a few datasets, and roughly measure the precision based on the self-defined metrics. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
+
 - :heavy_check_mark: Ask professor following questions: [@Jiangfeng Lin](https://github.com/astrob3rry) 
   - We need to manually inspect all the datasets first, but how do we decide what to inspect? Are the information listed on the project description enough?
 
@@ -75,6 +77,7 @@ We have a sample size of 150, and all the datasets are selected from [NYC Open D
   - How do we incorporate Hadoop and Spark into our solution?
 
     <u>*We can set up several worker nodes, and have each of them processing a portion of datasets. However, we should take extra care of load balancing.*</u>
+  
 - :star: **Bonus task**: Find tools that can help identify data quality issues and generate data quality report. Also, look for tools that can geocode the location information for the datasets without latitude and longitude. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
 
 ### Week 2: 2020.11.23 - 2020.11.29
