@@ -36,9 +36,11 @@ In the mean time, we read some relevant papers regarding data profiling and clea
 
 Open data often comes with little or no metadata, which makes it difficult to search for and find relevant datasets for a given information need. Therefore, the main goal for our project is to figure out a reliable and accurate way to provide informative summaries on spatial data for open datasets.
 
-## Data Sets
+## Datasets
 
-We have a sample size of 150, and all the datasets are selected from [NYC Open Data](https://opendata.cityofnewyork.us) with tabular structure and spatial data attributes.
+We have a sample size of 150, and all the datasets are selected from [NYC Open Data](https://opendata.cityofnewyork.us) with tabular structure and spatial data attributes.  
+
+Check [datasets.md](https://github.com/astrob3rry/spatial-data-profiling/blob/main/datasets.md) in the same repository for more details.
 
 ## Proposed Method/Approach
 
