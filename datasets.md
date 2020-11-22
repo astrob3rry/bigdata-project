@@ -57,6 +57,7 @@ We selected our sample datasets from [NYC Open Data](https://opendata.cityofnewy
 49. DOB NOW: Safety – Facades Compliance Filings: https://data.cityofnewyork.us/Housing-Development/DOB-NOW-Safety-Facades-Compliance-Filings/xubg-57si
 50. Housing Litigations: https://data.cityofnewyork.us/Housing-Development/Housing-Litigations/59kj-x8nc
 51. 2017 Yellow Taxi Trip Data: https://data.cityofnewyork.us/Transportation/2017-Yellow-Taxi-Trip-Data/biws-g3hs
+    - Taxi Zone Lookup Table: https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv
 52. 2017 Green Taxi Trip Data: https://data.cityofnewyork.us/Transportation/2017-Green-Taxi-Trip-Data/5gj9-2kzx
 53. 2017 For Hire Vehicle Trip Data: https://data.cityofnewyork.us/Transportation/2017-For-Hire-Vehicle-Trip-Data/avz8-mqzz
 54. 2020 High Volume FHV Trip Records (January - June): https://data.cityofnewyork.us/Transportation/2020-High-Volume-FHV-Trip-Records-January-June-/yrt9-58g8
