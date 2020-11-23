@@ -64,7 +64,9 @@ Check [datasets.md](https://github.com/astrob3rry/spatial-data-profiling/blob/ma
 - For data quality issues such as incorrect values and missing data that we learned while profiling the data, we would probably use some Web APIs such as [UPS Developer Kit](https://www.ups.com/upsdeveloperkit?loc=en_US), and also some open-source tools such as [OpenRefine](https://openrefine.org/) to help us generate a quality report to learn more about the details. For the dataset that does not have information about latitude and longitude, we could use some libraries such [geopy](https://github.com/geopy/geopy) to geocode the location information, and create new columns with the latitude and longitude information.
 
 ## Evaluation Criteria
-We will manually inspect the datasets to obtain the metadata about the spatial data, which will be used as the metrics to measure  the precision of the proposed method and the improved approach.
+We will manually inspect the datasets to obtain the metadata about the spatial data, which will be used as the metrics to measure the precision of the proposed method and the improved approach.  
+
+Check [metadata.md](https://github.com/astrob3rry/spatial-data-profiling/blob/main/metadata.md) in the same repository for more details.
 
 ## Weekly Schedule
 
