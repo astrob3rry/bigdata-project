@@ -104,7 +104,7 @@ Check [metadata.csv](https://github.com/astrob3rry/spatial-data-profiling/blob/m
   - <u>*Data quality issues: OpenRefine, usaddress, Web APIs such as UPS Developer Kit.*</u>
   - <u>*Geocode: geopy, pygeocoder.*</u>
 
-### Week 2: 2020.11.23 - 2020.11.29 ![ongoing](https://progress-bar.dev/0/?title=ongoing)
+### Week 2: 2020.11.23 - 2020.11.29 ![ongoing](https://progress-bar.dev/30/?title=ongoing)
 
 - :heavy_check_mark: Manually inspect 150 datasets, and summarize the corresponding result into a csv file. [@Jiangfeng Lin](https://github.com/astrob3rry)
 - Learn how to run multiple jobs simultaneously in Spark. [@Jiangfeng Lin](https://github.com/astrob3rry)
