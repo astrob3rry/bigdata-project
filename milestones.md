@@ -10,6 +10,10 @@ We searched some existing data profiling and cleaning tool that can be used as a
 
 - [Datamart Profiler](https://pypi.org/project/datamart-profiler)
   - This library can profile datasets for use with Auctus, NYU’s Datamart system. You can use it to profile datasets on your side and send that to the server for search, instead of uploading the whole dataset.
+- [Pandas profiling](https://github.com/pandas-profiling/pandas-profiling)
+  - Create HTML profiling reports from pandas DataFrame objects.
+- [sweetviz](https://github.com/fbdesignpro/sweetviz)
+  - Visualize and compare datasets, target values and associations, with one line of code.
 - [FuzzyWuzzy](https://github.com/seatgeek/fuzzywuzzy)
   - FuzzyWuzzy uses [Levenshtein Distance](https://en.wikipedia.org/wiki/Levenshtein_distance) to calculate the differences between sequences in a simple-to-use package.
 - [usaddress](https://github.com/datamade/usaddress)
@@ -27,19 +31,13 @@ We searched some existing data profiling and cleaning tool that can be used as a
 
 In the mean time, we read some relevant papers regarding spatial data profiling and cleaning as well:
 
-- D. Loshin. 2010. The Practitioner's Guide to Data Quality Improvement (1st. ed.). Morgan Kaufmann Publishers Inc.
-
 - Z. Abedjan, L. Golab, and F. Naumann. 2015. Profiling relational data: a survey. VLDB Journal.
-
 - F. Naumann. 2013. Data Profiling Revisited, SIGMOD Record.
-- Y. Y. Chiang, B. Wu, A. Anand, K. Akade, and C. A. Knoblock. 2014. A System for Efficient Cleaning and Transformation of Geospatial Data Attributes. Proceedings of the 22nd ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems.
-- J. M. Hellerstein. 2008. Quantitative Data Cleaning for Large Databases. UC Berkeley.
+- D. Loshin. 2010. The Practitioner's Guide to Data Quality Improvement (1st. ed.). Morgan Kaufmann Publishers Inc.
 - V. Ganti and A. D. Sarma. 2013. Data Cleaning: A Practical Perspective. Morgan & Claypool.
 - E. Rahm and H. H. Do. 2000. Data Cleaning: Problems and Current Approaches. IEEE Data Engineering Bulletin.
 - A. D. Chapman. 2005. Principles and Methods of Data Cleaning – Primary Species and Species-
   Occurrence Data, version 1.0. Report for the Global Biodiversity Information Facility.
-
-- S. Wang and H. Yuan. 2014. Spatial Data Mining: A Perspective of Big Data. International Journal of Data Warehousing and Mining. 
 
 
 ## Problem Description and Goal
