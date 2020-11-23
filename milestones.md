@@ -2,7 +2,7 @@
 
 ## Project Choice
 
-Our project is about spatial data profiling. We will profile 150 open data sets on spatial data which are selected from [NYC Open Data](https://opendata.cityofnewyork.us) using existing tools/libraries such as [Datamart Profiler](https://pypi.org/project/datamart-profiler) to identify their spatial attributes, and then try to come up with new techniques based on that to improve the precision and recall of the existing method.
+Our project is about spatial data profiling for [NYC Open Data](https://opendata.cityofnewyork.us). We will profile 150 open data sets on spatial data which are selected from [NYC Open Data](https://opendata.cityofnewyork.us) using existing tools/libraries such as [Datamart Profiler](https://pypi.org/project/datamart-profiler) to identify their spatial attributes, and then try to come up with new techniques based on that to improve the precision and recall of the existing method.
 
 ## Previous Work and References
 
@@ -10,8 +10,6 @@ We searched some existing data profiling and cleaning tool that can be used as a
 
 - [Datamart Profiler](https://pypi.org/project/datamart-profiler)
   - This library can profile datasets for use with Auctus, NYU’s Datamart system. You can use it to profile datasets on your side and send that to the server for search, instead of uploading the whole dataset.
-- [Pandas Profiling](https://github.com/pandas-profiling/pandas-profiling)
-  - Pandas Profiling generates profile reports from a pandas DataFrame.
 - [FuzzyWuzzy](https://github.com/seatgeek/fuzzywuzzy)
   - FuzzyWuzzy uses [Levenshtein Distance](https://en.wikipedia.org/wiki/Levenshtein_distance) to calculate the differences between sequences in a simple-to-use package.
 - [usaddress](https://github.com/datamade/usaddress)
@@ -46,7 +44,7 @@ In the mean time, we read some relevant papers regarding spatial data profiling 
 
 ## Problem Description and Goal
 
-Open data often comes with little or no metadata, which makes it difficult to search for and find relevant datasets for a given information need. Therefore, the main goal for our project is to figure out a relatively reliable and accurate way to provide informative summaries on spatial data for open data.
+Open data often comes with little or no metadata, which makes it difficult to search for and find relevant datasets for a given information need. Therefore, the main goal for our project is to figure out a relatively reliable and accurate way to provide informative summaries on spatial data for [NYC Open Data](https://opendata.cityofnewyork.us).
 
 ## Datasets
 
@@ -66,7 +64,7 @@ Check [datasets.md](https://github.com/astrob3rry/spatial-data-profiling/blob/ma
 ## Evaluation Criteria
 We will manually inspect the datasets to obtain the metadata about the spatial data, which will be used as the metrics to measure the precision of the proposed method and the improved approach.  
 
-Check [metadata.md](https://github.com/astrob3rry/spatial-data-profiling/blob/main/metadata.md) in the same repository for more details.
+Check [metadata.csv](https://github.com/astrob3rry/spatial-data-profiling/blob/main/metadata.csv) in the same repository for more details.
 
 ## Weekly Schedule
 
@@ -108,7 +106,7 @@ Check [metadata.md](https://github.com/astrob3rry/spatial-data-profiling/blob/ma
 
 ### Week 2: 2020.11.23 - 2020.11.29 ![ongoing](https://progress-bar.dev/0/?title=ongoing)
 
-- Manually inspect 150 datasets, and summarize the corresponding result into a csv file. [@Jiangfeng Lin](https://github.com/astrob3rry)
+- :heavy_check_mark: Manually inspect 150 datasets, and summarize the corresponding result into a csv file. [@Jiangfeng Lin](https://github.com/astrob3rry)
 - Learn how to run multiple jobs simultaneously in Spark. [@Jiangfeng Lin](https://github.com/astrob3rry)
 - Use Datamart profiler to perform spatial data profiling, and improve this method after identifying the limitations. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb)
 
