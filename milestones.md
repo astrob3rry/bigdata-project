@@ -42,7 +42,7 @@ In the mean time, we read some relevant papers regarding spatial data profiling 
 
 ## Problem Description and Goal
 
-Open data often comes with little or no metadata, which makes it difficult to search for and find relevant datasets for a given information need. Therefore, the main goal for our project is to figure out a relatively reliable and accurate way to provide informative summaries on spatial data for [NYC Open Data](https://opendata.cityofnewyork.us).
+Open data often comes with little or no metadata, which makes it difficult to search for and find relevant datasets for a given information need. Based on this context, the main goal for our project is to figure out a relatively reliable and accurate way to provide informative summaries on spatial data for the datasets from [NYC Open Data](https://opendata.cityofnewyork.us), and explore the difficulties that we encounter while profiling the spatial data. Especially, the focus of the project will be spatial attributes detection.
 
 ## Datasets
 
