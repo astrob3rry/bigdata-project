@@ -1,4 +1,4 @@
-# Spatial Data Profiling for NYC Open Data
+# Spatial Data Profiling
 
 ## Description
 
