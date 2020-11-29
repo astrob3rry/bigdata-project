@@ -56,14 +56,10 @@ We selected our sample datasets from [NYC Open Data](https://opendata.cityofnewy
 48. Housing Maintenance Code Complaints: https://data.cityofnewyork.us/Housing-Development/Housing-Maintenance-Code-Complaints/uwyv-629c
 49. DOB NOW: Safety – Facades Compliance Filings: https://data.cityofnewyork.us/Housing-Development/DOB-NOW-Safety-Facades-Compliance-Filings/xubg-57si
 50. Housing Litigations: https://data.cityofnewyork.us/Housing-Development/Housing-Litigations/59kj-x8nc
-51. 2017 Yellow Taxi Trip Data: https://data.cityofnewyork.us/Transportation/2017-Yellow-Taxi-Trip-Data/biws-g3hs
-    - Taxi Zone Lookup Table: https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv
-52. 2017 Green Taxi Trip Data: https://data.cityofnewyork.us/Transportation/2017-Green-Taxi-Trip-Data/5gj9-2kzx
-    - Taxi Zone Lookup Table: https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv
-53. 2017 For Hire Vehicle Trip Data: https://data.cityofnewyork.us/Transportation/2017-For-Hire-Vehicle-Trip-Data/avz8-mqzz
-    - Taxi Zone Lookup Table: https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv
-54. 2020 High Volume FHV Trip Records (January - June): https://data.cityofnewyork.us/Transportation/2020-High-Volume-FHV-Trip-Records-January-June-/yrt9-58g8
-    - Taxi Zone Lookup Table: https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv
+51. Speculation Watch List: https://data.cityofnewyork.us/Housing-Development/Speculation-Watch-List/adax-9mit
+52. DOF: Summary of Neighborhood Sales by Neighborhood Citywide by Borough: https://data.cityofnewyork.us/City-Government/DOF-Summary-of-Neighborhood-Sales-by-Neighborhood-/5ebm-myj7
+53. Courses/Training Provider Listing: https://data.cityofnewyork.us/Business/Courses-Training-Provider-Listing/fgq8-am2v
+54. Certification of No Harassment (CONH) Pilot Building List: https://data.cityofnewyork.us/Housing-Development/Certification-of-No-Harassment-CONH-Pilot-Building/bzxi-2tsw
 55. 2010 - 2016 School Safety Report: https://data.cityofnewyork.us/Education/2010-2016-School-Safety-Report/qybk-bjjc
 56. DSNY Graffiti Tracking: https://data.cityofnewyork.us/City-Government/DSNY-Graffiti-Tracking/gpwd-npar
 57. CATS Permits: https://data.cityofnewyork.us/Environment/CATS-Permits/f4rp-2kvy
