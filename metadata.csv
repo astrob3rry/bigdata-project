@@ -86,7 +86,7 @@ file_no,file_tile,file_name, has_lat_long,spatial_attributes
 85,"DYCD after-school programs","DYCD_after_school_programs.csv",1,"BOROUGH / COMMUNITY,Location 1,Postcode,Latitude,Longitude,Community Board,Council District,Census Tract,BIN,BBL,NTA"
 86,"Charges","Charges.csv",1,"Borough,Building Number,Street,Street 2,Unit Type,Unit,Description,City,State,Zip,Longitude,Latitude"
 87,"Lost Property Contact Information","Lost_Property_Contact_Information.csv",0,"Base Address"
-88,"Registration Contacts",0,"BusinessHouseNumber,BusinessStreetName,BusinessApartment,BusinessCity,BusinessState,BusinessZip"
+88,"Registration Contacts","Registration_Contacts.csv",0,"BusinessHouseNumber,BusinessStreetName,BusinessApartment,BusinessCity,BusinessState,BusinessZip"
 89,"Open Market Order (OMO) Charges","Open_Market_Order_OMO_Charges.csv",1,"BuildingID,Boro ID,Boro,HouseNumber,StreetName,Apartment,Zip,Block,Lot,Latitude,Longitude,Community Board,Council District,Census Tract,BIN,BBL,NTA"
 90,"City-owned sites that are available and potentially suitable for urban agriculture (Local Law 46 of 2018)","City_owned_sites_that_are_available_and_potentially_suitable_for_urban_agriculture_Local_Law_46_of_2018.csv",1,"Borough,Block,Lot,Address,Community Board,Council District,Coordinates,Postcode,Latitude,Longitude,BIN,NTA"
 91,"Borough Enrollment Offices","Borough_Enrollment_Offices.csv",1,"Borough,Postcode,Address,Latitude,Longitude,Community Board,Council District,Census Tract,BIN,BBL,NTA,Location 1"
