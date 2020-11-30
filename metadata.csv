@@ -10,7 +10,7 @@ file_no,file_tile,file_name, has_lat_long,spatial_attributes
 9,"DOB Complaints Received","DOB_Complaints_Received.csv",0,"House Number,ZIP Code,House Street,BIN,Community Board"
 10,"DOB NOW: Build – Approved Permits","DOB_NOW_Build_Approved_Permits.csv",0,"House No,Street Name,Borough,LOT,Bin,Block,Apt/Condo No(s),Applicant Business Address,Owner Street Address,Owner City,Owner State,Owner Zip Code"
 11,"FDNY Firehouse Listing","FDNY_Firehouse_Listing.csv",1,"FacilityAddress,Borough,Postcode,Latitude,Longitude,Community Board,Community Council,Census Tract,BIN,BBL,NTA"
-12,"NYPD Arrest Data (Year to Date)","NYPD_Arrests_Data_Historic.csv",1,"ARREST_BORO,ARREST_PRECINCT,X_COORD_CD,Y_COORD_CD,Latitude,Longitude,New Georeferenced Column"
+12,"NYPD Arrest Data (Year to Date)","NYPD_Arrest_Data_Year_to_Date.csv",1,"ARREST_BORO,ARREST_PRECINCT,X_COORD_CD,Y_COORD_CD,Latitude,Longitude,New Georeferenced Column"
 13,"NYPD Complaint Data Current (Year To Date)","NYPD_Complaint_Data_Current_Year_To_Date.csv",1,"ADDR_PCT_CD,BORO_NM,PATROL_BORO,X_COORD_CD,Y_COORD_CD,Latitude,Longitude,Lat_Lon,New Georeferenced Column"
 14,"Legally Operating Businesses","Legally_Operating_Businesses.csv",1,"Address Building,Address Street Name,Secondary Address Street Name,Address City,Address State,Address ZIP,Address Borough,Borough Code,Community Board,Council District,BIN,BBL,NTA,Census Tract,Longitude,Latitude,Location"
 15,"Housing Maintenance Code Violations","Housing_Maintenance_Code_Violations.csv",1,"BoroID,Borough,HouseNumber,LowHouseNumber,HighHouseNumber,StreetName,StreetCode,Postcode,Story,Block,Lot,Latitude,Longitude,CommunityBoard,CouncilDistrict,CensusTract,BIN,BBL,NTA"
