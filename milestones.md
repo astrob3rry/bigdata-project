@@ -110,7 +110,7 @@ Check [metadata.csv](https://github.com/astrob3rry/spatial-data-profiling/blob/m
 - :heavy_check_mark: Use Datamart profiler to perform spatial data profiling, and improve this method after identifying the limitations. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb)
   - <u>*We noticed that Datamart profiler could only reliably identify “latitude” and “longitude”. We decided to use fuzzy match and regular expression to help improve the method.*</u>
 
-### Week 3: 2020.11.30 - 2020.12.06 ![TBD](https://progress-bar.dev/0/?title=ongoing)
+### Week 3: 2020.11.30 - 2020.12.06 ![ongoing](https://progress-bar.dev/0/?title=ongoing)
 
 #### :runner: Sprint 1: 2020.11.30 - 2020.12.02
 
@@ -118,13 +118,21 @@ Check [metadata.csv](https://github.com/astrob3rry/spatial-data-profiling/blob/m
 - Improve the current code for spatial data detection. [@Weili He](https://github.com/WeiliHe)
 - Come up with another idea of how to implement Spark, and try to run the code on the Dumbo cluster. [@Xianbo Gao](https://github.com/gaogxb)
 
-#### :runner: ​Sprint 2: 2020.12.03 - 2020.12.05
+#### :runner: ​Sprint 2: 2020.12.03 - 2020.12.06
 
 - Discuss when and why our improved profiling approach fails. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
 - Identify quality issues and generate quality reports. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
 - Use a library or a service to geocode the location information for the datasets that does not have columns for latitude and longitude. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
 
-#### :runner: ​Sprint 3: 2020.12.06
+### Week 4: 2020.12.07 - 2020.12.13 ![TBD](https://progress-bar.dev/0/?title=TBD)
 
-- Refine the report, and prepare for the project presentation. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
+#### :runner: Sprint 1: 2020.12.07 - 2020.12.11
+
+- Finalize the code.
+- Draft the report that follows ACM using LaTeX. [@Jiangfeng Lin](https://github.com/astrob3rry)
+- Revise and improve the report. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb)
+
+#### :runner: Sprint 2: 2020.12.11 - 2020.12.13
+
+- Prepare for the project presentation. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
 

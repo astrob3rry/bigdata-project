@@ -45,7 +45,7 @@ We selected our sample datasets from [NYC Open Data](https://opendata.cityofnewy
 37. Voting/Poll Sites: https://data.cityofnewyork.us/City-Government/Voting-Poll-Sites/mifw-tguq
 38. Public Recycling Bins: https://data.cityofnewyork.us/Environment/Public-Recycling-Bins/sxx4-xhzg
 39. Queens Library Branches: https://data.cityofnewyork.us/Education/Queens-Library-Branches/kh3d-xhq7
-40. New York City Council Discretionary Funding: https://data.cityofnewyork.us/City-Government/New-York-City-Council-Discretionary-Funding/4d7f-74pe
+40. Union Square Partnership (USP) Business List: https://data.cityofnewyork.us/Business/Union-Square-Partnership-USP-Business-List/p6bh-gqsg
 41. Rodent Inspection: https://data.cityofnewyork.us/Health/Rodent-Inspection/p937-wjvj
 42. NYC Wi-Fi Hotspot Locations: https://data.cityofnewyork.us/City-Government/NYC-Wi-Fi-Hotspot-Locations/yjub-udmw
 43. Construction Demolition Registrants: https://data.cityofnewyork.us/City-Government/Construction-Demolition-Registrants/cspg-yi7g
