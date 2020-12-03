@@ -115,19 +115,21 @@ Check [metadata.csv](https://github.com/astrob3rry/spatial-data-profiling/blob/m
 #### :runner: Sprint 1: 2020.11.30 - 2020.12.02
 
 - :heavy_check_mark: ​Upload all the files to the Dumbo cluster, and create the target JSON file for accuracy comparison. [@Jiangfeng Lin](https://github.com/astrob3rry)
-- Improve the current code for spatial data detection. [@Weili He](https://github.com/WeiliHe)
-- Come up with another idea of how to implement Spark, and try to run the code on the Dumbo cluster. [@Xianbo Gao](https://github.com/gaogxb)
+- :heavy_check_mark: Improve the current code for spatial data detection. [@Weili He](https://github.com/WeiliHe)
+- :warning: Come up with another idea of how to implement Spark, and try to run the code on the Dumbo cluster. [@Xianbo Gao](https://github.com/gaogxb)
+  - <u>*Didn’t get a chance to do this because of deadline conflicts.*</u>
 
 #### :runner: ​Sprint 2: 2020.12.03 - 2020.12.06
 
+- Deploy our current code using Spark. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
 - Discuss when and why our improved profiling approach fails. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
-- Identify quality issues and generate quality reports. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
-- Use a library or a service to geocode the location information for the datasets that does not have columns for latitude and longitude. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
 
 ### Week 4: 2020.12.07 - 2020.12.13 ![TBD](https://progress-bar.dev/0/?title=TBD)
 
 #### :runner: Sprint 1: 2020.12.07 - 2020.12.11
 
+- Identify quality issues and generate quality reports. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
+- Use a library or a service to geocode the location information for the datasets that does not have columns for latitude and longitude. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
 - Draft the report that follows ACM using LaTeX. [@Jiangfeng Lin](https://github.com/astrob3rry)
 - Revise and improve the report. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb)
 
