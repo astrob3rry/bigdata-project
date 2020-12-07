@@ -6,13 +6,37 @@ spark-submit --conf spark.pyspark.python=/share/apps/python/3.6.5/bin/python spa
 
 import sys
 import json
+import random
+import re
 import numpy as np
 import pandas as pd
+from fuzzywuzzy import fuzz
+from fuzzywuzzy import process
+# from snapy import MinHash, LSH
 
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 
+# test fuzzywuzzy
+print("ratio: {}".format(fuzz.ratio("this is a test", "this is a test!")))
+choices = ["Atlanta Falcons", "New York Jets", "New York Giants", "Dallas Cowboys"]
+process.extract("new york jets", choices, limit=2)
+print("process: {}".format(process.extract("new york jets", choices, limit=2)))
+
 spark = SparkSession.builder.appName("project-test").config("spark.some.config.option", "some-value").getOrCreate()
+# spark.sparkContext.addPyFile("mmh3.zip")
+spark.sparkContext.addPyFile("snapy.zip")
+### test snapy: not working because of mmh3
+# from snapy import MinHash, LSH
+# labels = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+# seed = 3
+# Create MinHash object.
+# testMinhash = MinHash(content, n_gram=9, permutations=100, hash_bits=64, seed=3)
+# Create LSH model.
+# testLsh = LSH(testMinhash, labels, no_of_bands=50)
+# Query to find near duplicates for text 1.
+# print("snapy result: {}".format(testLsh.query(1, min_jaccard=0.5)))
+
 # org.apache.spark.SparkException: Job aborted due to stage failure: Total size of serialized results of 18 tasks (1052.8 MB) is bigger than spark.driver.maxResultSize (1024.0 MB)
 # spark.conf.set("spark.driver.maxResultSize", "10g")
 # spark.conf.set("spark.sql.execution.arrow.enabled", "true")
@@ -51,3 +75,4 @@ for fileName in fileNames:
     # ResultSparkDF = spark.createDataFrame(filePandasDF)
 
 spark.stop()
+
