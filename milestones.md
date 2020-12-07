@@ -110,7 +110,7 @@ Check [metadata.csv](https://github.com/astrob3rry/spatial-data-profiling/blob/m
 - :heavy_check_mark: Use Datamart profiler to perform spatial data profiling, and improve this method after identifying the limitations. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb)
   - <u>*We noticed that Datamart profiler could only reliably identify “latitude” and “longitude”. We decided to use fuzzy match and regular expression to help improve the method.*</u>
 
-### Week 3: 2020.11.30 - 2020.12.06 ![ongoing](https://progress-bar.dev/30/?title=ongoing)
+### Week 3: 2020.11.30 - 2020.12.06 ![ongoing](https://progress-bar.dev/70/?title=unfinished)
 
 #### :runner: Sprint 1: 2020.11.30 - 2020.12.02
 
@@ -121,8 +121,9 @@ Check [metadata.csv](https://github.com/astrob3rry/spatial-data-profiling/blob/m
 
 #### :runner: ​Sprint 2: 2020.12.03 - 2020.12.06
 
-- Deploy our current code using Spark. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
-- Discuss when and why our improved profiling approach fails. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
+- :warning: Deploy our current code using Spark. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
+  - <u>*Since our project actually doesn’t perfectly fit into a map reduce programming model(we only have a map phase, and we have 150 datasets that are very large), it’s hard to refactor our current code using pyspark. Also, some libraries we are currently using are only compatible with pandas dataframe. This task is way harder than we have imagined it to be, therefore we couldn’t finish it on time.*</u>
+-  :heavy_check_mark: Discuss when and why our improved profiling approach fails. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
 
 ### Week 4: 2020.12.07 - 2020.12.13 ![TBD](https://progress-bar.dev/0/?title=TBD)
 
