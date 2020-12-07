@@ -25,17 +25,42 @@ print("process: {}".format(process.extract("new york jets", choices, limit=2)))
 
 spark = SparkSession.builder.appName("project-test").config("spark.some.config.option", "some-value").getOrCreate()
 # spark.sparkContext.addPyFile("mmh3.zip")
+spark.sparkContext.addPyFile("mmh3.py")
 spark.sparkContext.addPyFile("snapy.zip")
+
 ### test snapy: not working because of mmh3
-# from snapy import MinHash, LSH
-# labels = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-# seed = 3
+import mmh3
+from snapy import MinHash, LSH
+content = [
+    'Jupiter is primarily composed of hydrogen with a quarter of its mass '
+    'being helium',
+    'Jupiter moving out of the inner Solar System would have allowed the '
+    'formation of inner planets.',
+    'A helium atom has about four times as much mass as a hydrogen atom, so '
+    'the composition changes when described as the proportion of mass '
+    'contributed by different atoms.',
+    'Jupiter is primarily composed of hydrogen and a quarter of its mass '
+    'being helium',
+    'A helium atom has about four times as much mass as a hydrogen atom and '
+    'the composition changes when described as a proportion of mass '
+    'contributed by different atoms.',
+    'Theoretical models indicate that if Jupiter had much more mass than it '
+    'does at present, it would shrink.',
+    'This process causes Jupiter to shrink by about 2 cm each year.',
+    'Jupiter is mostly composed of hydrogen with a quarter of its mass '
+    'being helium',
+    'The Great Red Spot is large enough to accommodate Earth within its '
+    'boundaries.'
+]
+labels = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+seed = 3
 # Create MinHash object.
-# testMinhash = MinHash(content, n_gram=9, permutations=100, hash_bits=64, seed=3)
+testMinhash = MinHash(content, n_gram=9, permutations=100, hash_bits=64, seed=3)
 # Create LSH model.
-# testLsh = LSH(testMinhash, labels, no_of_bands=50)
+testLsh = LSH(testMinhash, labels, no_of_bands=50)
 # Query to find near duplicates for text 1.
-# print("snapy result: {}".format(testLsh.query(1, min_jaccard=0.5)))
+print("snapy result: {}".format(testLsh.query(1, min_jaccard=0.5)))
+
 
 # org.apache.spark.SparkException: Job aborted due to stage failure: Total size of serialized results of 18 tasks (1052.8 MB) is bigger than spark.driver.maxResultSize (1024.0 MB)
 # spark.conf.set("spark.driver.maxResultSize", "10g")
@@ -75,4 +100,3 @@ for fileName in fileNames:
     # ResultSparkDF = spark.createDataFrame(filePandasDF)
 
 spark.stop()
-
