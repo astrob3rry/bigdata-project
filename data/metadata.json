@@ -1485,6 +1485,11 @@
 				"is_spatial": false,
 				"type": "n/a"
 			},
+                        "HADEVELOPT": {
+                                "index": 19,
+                                "is_spatial": false,
+                                "type": "n/a"
+                        },
 			"HOUSING_PSA": {
 				"index": 20,
 				"is_spatial": false,
@@ -4164,7 +4169,7 @@
 				"is_spatial": true,
 				"type": "nta"
 			},
-			"BIN": {
+			"BIN2": {
 				"index": 66,
 				"is_spatial": true,
 				"type": "bin"
