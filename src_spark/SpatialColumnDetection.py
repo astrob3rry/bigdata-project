@@ -1,13 +1,21 @@
 import pandas as pd
 import sys, os
 import numpy as np
-from snapy import MinHash, LSH
+
 from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
 import random
 import re
 import Settings as Settings
+from pyspark.sql import SparkSession
 
+spark = SparkSession.builder.appName("project-test").config("spark.some.config.option", "some-value").getOrCreate()
+spark.sparkContext.addPyFile("/home/wh2099/project/mmh3.py")
+spark.sparkContext.addPyFile("/home/wh2099/project/snapy.zip")
+import mmh3
+from snapy import MinHash, LSH
+
+# df is a spark dataframe
 class SpatialColumnDetection:
     def __init__(self, df, defaultFiles, index):
         self.types = Settings.types
@@ -25,6 +33,11 @@ class SpatialColumnDetection:
 
         self.defaultFiles = defaultFiles
         self.index = index
+        # get the dtype dictionary first
+        self.dtypes = {}
+        for keyVal in df.dtypes:
+            self.dtypes[keyVal[0]] = keyVal[1]
+
 
     def initReturnResult(self):
         self.colNameType["file_index"] = str(self.index)
@@ -75,9 +88,9 @@ class SpatialColumnDetection:
         for colName in self.columnNames:
             # change to lower case and trip it
             colNameLwStrip = colName.lower().strip()
-            if self.detectLongitude(colNameLwStrip, colName, self.df[colName]):
+            if self.detectLongitude(colNameLwStrip, colName):
                 type = "longitude"
-            elif self.detectLatitude(colNameLwStrip, colName, self.df[colName]):
+            elif self.detectLatitude(colNameLwStrip, colName):
                 type = "latitude"
             elif self.detectAddress(colNameLwStrip, colName):
                 type = "address"
@@ -124,36 +137,36 @@ class SpatialColumnDetection:
         return False
 
     # TODO: to be finish, colName passed in is lowercase, colNameLw is the lower case and stip()
-    def detectLongitude(self, colNameLw, colName, column):
+    def detectLongitude(self, colNameLw, colName):
         names = ["longitude", "lon"]
-        thredshold = 75
+        thredshold = 70
         if self.commonDetectMethod(colNameLw, names, thredshold):
             return True
         return False
 
     # TODO: use datamart
-    def detectLatitude(self, colNameLw, colName, column):
-        names = ["latitude"]
-        thredshold = 75
+    def detectLatitude(self, colNameLw, colName):
+        names = ["latitude", "lat"]
+        thredshold = 70
         if self.commonDetectMethod(colNameLw, names, thredshold):
             return True
         return False
 
     # list all the country out, count how many of the sample column values are in country list
-    def detectCountry(self, colNameLw,colName):
+    def detectCountry(self, colNameLw, colName):
         # quite similar word
         if "county" in colNameLw:
             return False
         names = ["country"]
-        thredshold = 100
+        thredshold = 70
         if self.commonDetectMethod(colNameLw, names, thredshold):
             return True
-        if self.df[colName].dtype == object:
+        if (self.dtypes[colName] == object) or (self.dtypes[colName] == "string"):
             dfCountryNames = self.defaultFiles.dfCountryNames
             # sampling and pair wise comparison
-            sampleSize = 500
-            sampleSize = min(sampleSize, len(self.df[colName]))
-            columnValuesSample = random.sample(list(self.df[colName].values), sampleSize)
+            sampleSize = 800
+            sampleSize = min(sampleSize, self.df.count())
+            columnValuesSample = random.sample(self.df.select(colName).rdd.flatMap(lambda x: x).collect(), sampleSize)
             columnValuesSample = [x for x in columnValuesSample if type(x) == str]
             sampleLength = len(columnValuesSample)
             # meanning many are nan
@@ -165,9 +178,9 @@ class SpatialColumnDetection:
 
             # compare with country code, other wise compare with country full name
             if avgLen <= 2.3:
-                countries = dfCountryNames["Code"].values
+                countries = dfCountryNames.select("Code").rdd.flatMap(lambda x: x).collect()
             else:
-                countries = dfCountryNames["Name"].values
+                countries = dfCountryNames.select("Name").rdd.flatMap(lambda x: x).collect()
 
             # equality count
             count = 0
@@ -176,7 +189,7 @@ class SpatialColumnDetection:
                     if value.lower() == country.lower():
                         count += 1
                         break
-            if count / sampleLength > 0.7:
+            if count / sampleLength > 0.6:
                 return True
 
         return False
@@ -187,12 +200,13 @@ class SpatialColumnDetection:
         thredshold = 70
         if self.commonDetectMethod(colNameLw, names, thredshold):
             return True
-        if self.df[colName].dtype == object:
+        if (self.dtypes[colName] == object) or (self.dtypes[colName] == "string"):
             dfStateNames = self.defaultFiles.dfStateNames
             # sampling and pair wise comparison
             sampleSize = 500
-            sampleSize = min(sampleSize, len(self.df[colName]))
-            columnValuesSample = random.sample(list(self.df[colName].values), sampleSize)
+            sampleSize = min(sampleSize, self.df.count())
+            # can this be expressed in df[colName].values
+            columnValuesSample = random.sample(self.df.select(colName).rdd.flatMap(lambda x: x).collect(), sampleSize)
             columnValuesSample = [x for x in columnValuesSample if type(x) == str]
             sampleLength = len(columnValuesSample)
             # meanning many are nan
@@ -204,9 +218,9 @@ class SpatialColumnDetection:
 
             # compare with state code, other wise compare with state full name
             if avgLen <= 2.3:
-                states = dfStateNames["Code"].values
+                states = dfStateNames.select("Code").rdd.flatMap(lambda x: x).collect()
             else:
-                states = dfStateNames["Name"].values
+                states = dfStateNames.select("Name").rdd.flatMap(lambda x: x).collect()
 
             # equality count
             count = 0
@@ -225,19 +239,19 @@ class SpatialColumnDetection:
         thredshold = 70
         if self.commonDetectMethod(colNameLw, names, thredshold):
             return True
-        if self.df[colName].dtype == object:
+        if (self.dtypes[colName] == object) or (self.dtypes[colName] == "string"):
             dfCityNames = self.defaultFiles.dfCityNames
             # sampling and pair wise comparison
-            sampleSize = 500
-            sampleSize = min(sampleSize, len(self.df[colName]))
-            columnValuesSample = random.sample(list(self.df[colName].values), sampleSize)
+            sampleSize = 1000
+            sampleSize = min(sampleSize, self.df.count())
+            columnValuesSample = random.sample(self.df.select(colName).rdd.flatMap(lambda x: x).collect(), sampleSize)
             columnValuesSample = [x for x in columnValuesSample if type(x) == str]
             sampleLength = len(columnValuesSample)
             # meanning many are nan
             if sampleLength / sampleSize < 0.1:
                 return False
 
-            cities = dfCityNames["Name"].values
+            cities = dfCityNames.select("Name").rdd.flatMap(lambda x: x).collect()
             # equality count
             count = 0
             for value in columnValuesSample:
@@ -259,19 +273,19 @@ class SpatialColumnDetection:
         thredshold = 70
         if self.commonDetectMethod(colNameLw, names, thredshold):
             return True
-        if self.df[colName].dtype == object:
+        if (self.dtypes[colName] == object) or (self.dtypes[colName] == "string"):
             dfCountyNames = self.defaultFiles.dfCountyNames
             # sampling and pair wise comparison
             sampleSize = 500
-            sampleSize = min(sampleSize, len(self.df[colName]))
-            columnValuesSample = random.sample(list(self.df[colName].values), sampleSize)
+            sampleSize = min(sampleSize, self.df.count())
+            columnValuesSample = random.sample(self.df.select(colName).rdd.flatMap(lambda x: x).collect(), sampleSize)
             columnValuesSample = [x for x in columnValuesSample if type(x) == str]
             sampleLength = len(columnValuesSample)
             # meaning many are nan
             if sampleLength / sampleSize < 0.1:
                 return False
 
-            counties = dfCountyNames["Name"].values
+            counties = dfCountyNames.select("Name").rdd.flatMap(lambda x: x).collect()
             # equality count
             count = 0
             for value in columnValuesSample:
@@ -293,14 +307,15 @@ class SpatialColumnDetection:
     # need to use sampling
     def detectAddress(self, colNameLw, colName):
         names = ["address", "street", "block"]
-        thredshold = 80
+        thredshold = 70
         if self.commonDetectMethod(colNameLw, names, thredshold):
             return True
-        if self.df[colName].dtype == object:
+        if (self.dtypes[colName] == object) or (self.dtypes[colName] == "string"):
             # sampling and pair wise comparison
-            sampleSize = 500
-            sampleSize = min(sampleSize, len(self.df[colName]))
-            columnValuesSample = random.sample(list(self.df[colName].values), sampleSize)
+            sampleSize = 1000
+
+            sampleSize = min(sampleSize, self.df.count())
+            columnValuesSample = random.sample(self.df.select(colName).rdd.flatMap(lambda x: x).collect(), sampleSize)
             columnValuesSample = [x for x in columnValuesSample if type(x) == str]
             sampleLength = len(columnValuesSample)
             # meanning many are nan
@@ -336,7 +351,7 @@ class SpatialColumnDetection:
                 if result != None:
                     if result.group() > 10:
                         count += 1
-            if count / sampleLength > 0.7:
+            if count / sampleLength > 0.6:
                 return True
 
                 # TODO use the addr_detection package
@@ -353,12 +368,13 @@ class SpatialColumnDetection:
         thredshold = 70
         if self.commonDetectMethod(colNameLw, names, thredshold):
             return True
-        if (self.df[colName].dtype == object) or (self.df[colName].dtype == np.int64):
+        if (self.dtypes[colName] == object) or (self.dtypes[colName] == "string") or \
+            (self.dtypes[colName] == "int") or (self.dtypes[colName] == "bigint"):
             # sampling and pair wise comparison
             sampleSize = 500
-            sampleSize = min(sampleSize, len(self.df[colName]))
-            columnValuesSample = random.sample(list(self.df[colName].values), sampleSize)
-            if self.df[colName].dtype == np.int64:
+            sampleSize = min(sampleSize, self.df.count())
+            columnValuesSample = random.sample(self.df.select(colName).rdd.flatMap(lambda x: x).collect(), sampleSize)
+            if (self.dtypes[colName] == "int") or (self.dtypes[colName] == "bigint"):
                 columnValuesSample = [str(x) for x in columnValuesSample]
             else:
                 columnValuesSample = [x for x in columnValuesSample if type(x) == str]
