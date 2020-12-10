@@ -122,19 +122,21 @@ Check [metadata.csv](https://github.com/astrob3rry/spatial-data-profiling/blob/m
 #### :runner: ​Sprint 2: 2020.12.03 - 2020.12.06
 
 - :warning: Deploy our current code using Spark. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
-  - <u>*Since our project actually doesn’t perfectly fit into a map reduce programming model(we only have a map phase, and we have 150 datasets that are very large), it’s hard to refactor our current code using pyspark. Also, some libraries we are currently using are only compatible with pandas dataframe. This task is way harder than we have imagined it to be, therefore we couldn’t finish it on time.*</u>
+  - <u>*Since our project actually doesn’t perfectly fit into a map reduce programming model(we only have a map phase), it’s hard to refactor our current code using pyspark. Also, some libraries we are currently using are only compatible with pandas dataframe. This task is way harder than we have imagined it to be, therefore we couldn’t finish it on time.*</u>
 -  :heavy_check_mark: Discuss when and why our improved profiling approach fails. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
 
 ### Week 4: 2020.12.07 - 2020.12.13 ![TBD](https://progress-bar.dev/20/?title=ongoing)
 
 #### :runner: Sprint 1: 2020.12.07 - 2020.12.11
 
-- Identify quality issues and generate quality reports. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
-- Use a library or a service to geocode the location information for the datasets that does not have columns for latitude and longitude. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
-- Draft the report that follows ACM using LaTeX. [@Jiangfeng Lin](https://github.com/astrob3rry)
+- Calculate the accuracy of spatial column detection using Datamart. [@Xianbo Gao](https://github.com/gaogxb)
+- Refactor the current python code to make it runnable under Spark. [@Weili He](https://github.com/WeiliHe)
+- :heavy_check_mark: ​Identify quality issues and generate quality reports.  [@Jiangfeng Lin](https://github.com/astrob3rry)
+- Geocode the location for the datasets that do not have columns for latitude and longitude.  [@Jiangfeng Lin](https://github.com/astrob3rry)
+- Draft the final project report using LaTeX. [@Jiangfeng Lin](https://github.com/astrob3rry), [@Weili He](https://github.com/WeiliHe)
 - Revise and improve the report. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb)
 
 #### :runner: Sprint 2: 2020.12.12 - 2020.12.13
 
+- Make presentation slides. [@Jiangfeng Lin](https://github.com/astrob3rry)
 - Prepare for the project presentation. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
-
