@@ -33,7 +33,6 @@ zipLatLongDF.createOrReplaceTempView("zips")
 
 fileNames = metadataDF.columns
 for fileName in fileNames:
-    fileName = "Courses_Training_Provider_Listing.csv"
     print("***********current file name: {}***********".format(fileName))
     hdfsPath = "data/" + fileName
     fileSparkDF = spark.read.format('csv').options(header = 'true', inferschema = 'true').load(hdfsPath)
