@@ -17628,13 +17628,13 @@
 			},
 			"Latitude": {
 				"index": 8,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "latitude"
 			},
 			"Longitude": {
 				"index": 9,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "longitude"
 			},
 			"Community Board": {
 				"index": 10,
