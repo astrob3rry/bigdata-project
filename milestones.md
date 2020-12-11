@@ -125,16 +125,16 @@ Check [metadata.csv](https://github.com/astrob3rry/spatial-data-profiling/blob/m
   - <u>*Since our project actually doesn’t perfectly fit into a map reduce programming model(we only have a map phase), it’s hard to refactor our current code using pyspark. Also, some libraries we are currently using are only compatible with pandas dataframe. This task is way harder than we have imagined it to be, therefore we couldn’t finish it on time.*</u>
 -  :heavy_check_mark: Discuss when and why our improved profiling approach fails. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
 
-### Week 4: 2020.12.07 - 2020.12.13 ![ongoing](https://progress-bar.dev/30/?title=ongoing)
+### Week 4: 2020.12.07 - 2020.12.13 ![ongoing](https://progress-bar.dev/80/?title=ongoing)
 
 #### :runner: Sprint 1: 2020.12.07 - 2020.12.11
 
-- Calculate the accuracy of spatial column detection using Datamart. [@Xianbo Gao](https://github.com/gaogxb)
-- Refactor the current python code to make it runnable under Spark. [@Weili He](https://github.com/WeiliHe)
+- :heavy_check_mark: Calculate the accuracy of spatial column detection using Datamart. [@Xianbo Gao](https://github.com/gaogxb)
+- :heavy_check_mark: Refactor the current python code to make it runnable under Spark. [@Weili He](https://github.com/WeiliHe)
 - :heavy_check_mark: ​Identify quality issues and generate quality reports.  [@Jiangfeng Lin](https://github.com/astrob3rry)
 - :heavy_check_mark: Geocode the location for the datasets that do not have columns for latitude and longitude.  [@Jiangfeng Lin](https://github.com/astrob3rry)
-- Draft the final project report using LaTeX. [@Jiangfeng Lin](https://github.com/astrob3rry), [@Weili He](https://github.com/WeiliHe)
-- Revise and improve the report.  [@Xianbo Gao](https://github.com/gaogxb)
+- :heavy_check_mark: Draft the final project report using LaTeX. [@Jiangfeng Lin](https://github.com/astrob3rry), [@Weili He](https://github.com/WeiliHe)
+- :heavy_check_mark: Revise and improve the report.  [@Xianbo Gao](https://github.com/gaogxb)
 
 #### :runner: Sprint 2: 2020.12.12 - 2020.12.13
 

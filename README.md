@@ -11,4 +11,4 @@ We will profile 150 open data sets on spatial data which are selected from [NYC 
 - [Xianbo Gao](https://github.com/gaogxb)
 - [Jiangfeng Lin](https://github.com/astrob3rry)
 
-November 10, 2020 - December 7, 2020 :cupid:
+November 10, 2020 - December 14, 2020 :cupid:
