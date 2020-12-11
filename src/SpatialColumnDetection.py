@@ -148,6 +148,9 @@ class SpatialColumnDetection:
         thredshold = 100
         if self.commonDetectMethod(colNameLw, names, thredshold):
             return True
+        else:
+            return False
+        # this not work for "yes" or "no" column because "no" stands for norway
         if self.df[colName].dtype == object:
             dfCountryNames = self.defaultFiles.dfCountryNames
             # sampling and pair wise comparison
@@ -166,8 +169,10 @@ class SpatialColumnDetection:
             # compare with country code, other wise compare with country full name
             if avgLen <= 2.3:
                 countries = dfCountryNames["Code"].values
+                countries = [code for code in dfCountryNames["Code"] if code != "NO"]
             else:
                 countries = dfCountryNames["Name"].values
+                countries = [code for code in dfCountryNames["Code"] if code != "Norway"]
 
             # equality count
             count = 0
@@ -184,7 +189,7 @@ class SpatialColumnDetection:
     # list all the state out, fullname and abbreviation, can use sampling
     def detectState(self, colNameLw, colName):
         names = ["state"]
-        thredshold = 70
+        thredshold = 90
         if self.commonDetectMethod(colNameLw, names, thredshold):
             return True
         if self.df[colName].dtype == object:
@@ -222,9 +227,16 @@ class SpatialColumnDetection:
     # can use sampling
     def detectCity(self, colNameLw, colName):
         names = ["city", "town"]
-        thredshold = 70
-        if self.commonDetectMethod(colNameLw, names, thredshold):
-            return True
+        thredshold = 90
+        # if self.commonDetectMethod(colNameLw, names, thredshold):
+        #     return True
+        # avoid capcity, ethnicity, electricity words
+        for name in names:
+            if colNameLw == name:
+                return True
+        # some column name states, county but have New York inside
+        if self.commonDetectMethod(colNameLw, ["state", "county"], thredshold):
+            return False
         if self.df[colName].dtype == object:
             dfCityNames = self.defaultFiles.dfCityNames
             # sampling and pair wise comparison
@@ -284,8 +296,8 @@ class SpatialColumnDetection:
         return False
 
     def detectBorough(self, colNameLw, colName):
-        names = ["borough"]
-        thredshold = 70
+        names = ["borough", "boro", "borocode"]
+        thredshold = 80
         if self.commonDetectMethod(colNameLw, names, thredshold):
             return True
         return False
@@ -295,7 +307,9 @@ class SpatialColumnDetection:
         names = ["address", "street", "block"]
         thredshold = 80
         if self.commonDetectMethod(colNameLw, names, thredshold):
-            return True
+            # add one more condition
+            if self.df[colName].dtype == object:
+                return True
         if self.df[colName].dtype == object:
             # sampling and pair wise comparison
             sampleSize = 500
@@ -314,8 +328,10 @@ class SpatialColumnDetection:
                 return False
 
             # use regex expression, detect full address
-            regexPattern = """
-            \b\d{1,6} +.{2,25}\b(avenue|ave|court|ct|street|st|drive|dr|lane|ln|road|rd|blvd|plaza|parkway|pkwy|boulevard|)[.,]?(.{0,25} +\b\d{5}\b)?
+            regexPattern ="""
+            \b\d{1,6} +.{2,25}\b(avenue|ave|court|ct|street|st|
+            drive|dr|lane|ln|road|rd|blvd|plaza|parkway|pkwy|
+            boulevard|)[.,]?(.{0,25} +\b\d{5}\b)?
             """
             count = 0
             for x in columnValuesSample:
@@ -327,8 +343,9 @@ class SpatialColumnDetection:
                 return True
 
             # use regex expression to detect street name like
-            regexPattern2 = """
-            \d+[ ](?:[A-Za-z0-9.-]+[ ]?)+(?:Avenue|Lane|Road|Boulevard|Drive|Street|Ave|Dr|Rd|Blvd|Ln|St)\.?
+            regexPattern2 ="""
+            \d+[ ](?:[A-Za-z0-9.-]+[ ]?)+(?:Avenue|Lane|Road|
+            Boulevard|Drive|Street|Ave|Dr|Rd|Blvd|Ln|St)\.?
             """
             count = 0
             for x in columnValuesSample:

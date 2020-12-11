@@ -26,6 +26,7 @@ nameNormalize = {
     "census_board": "other location attribute",
     "geom": "other location attribute",
     "other": "other location attribute",
+    "county": "other location attribute",
     "n/a": "not spatial attribute"
 }
 types = ["longitude", "latitude", "address", "borough", "city", "state",

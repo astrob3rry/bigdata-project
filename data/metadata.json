@@ -11,7 +11,7 @@
 			"BoroughCode": {
 				"index": 1,
 				"is_spatial": true,
-				"type": "other"
+				"type": "borough"
 			},
 			"Geographical District": {
 				"index": 2,
@@ -386,8 +386,8 @@
 			},
 			"Street Frontage": {
 				"index": 54,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "street"
 			},
 			"ExistingNo. of Stories": {
 				"index": 55,
@@ -1538,7 +1538,7 @@
 			"Lat_Lon": {
 				"index": 29,
 				"is_spatial": true,
-				"type": "other"
+				"type": "longitude"
 			},
 			"PATROL_BORO": {
 				"index": 30,
@@ -2173,7 +2173,7 @@
 			"Lat_Lon": {
 				"index": 34,
 				"is_spatial": true,
-				"type": "other"
+				"type": "longitude"
 			},
 			"New Georeferenced Column": {
 				"index": 35,
@@ -2269,7 +2269,7 @@
 			"Borough Code": {
 				"index": 16,
 				"is_spatial": true,
-				"type": "other"
+				"type": "borough"
 			},
 			"Community Board": {
 				"index": 17,
@@ -2345,7 +2345,7 @@
 			"BoroID": {
 				"index": 3,
 				"is_spatial": true,
-				"type": "other"
+				"type": "borough"
 			},
 			"Borough": {
 				"index": 4,
@@ -3180,7 +3180,7 @@
 			"Lon_Lat": {
 				"index": 18,
 				"is_spatial": true,
-				"type": "other"
+				"type": "longitude"
 			}
 		}
 	},
@@ -3286,8 +3286,8 @@
 			},
 			"Block ": {
 				"index": 3,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "street"
 			},
 			"Lot": {
 				"index": 4,
@@ -4328,8 +4328,8 @@
 			},
 			"block_id": {
 				"index": 1,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "other"
 			},
 			"created_at": {
 				"index": 2,
@@ -5474,7 +5474,7 @@
 			"BoroID": {
 				"index": 2,
 				"is_spatial": true,
-				"type": "other"
+				"type": "borough"
 			},
 			"Boro": {
 				"index": 3,
@@ -5640,7 +5640,7 @@
 			"Lon_Lat": {
 				"index": 18,
 				"is_spatial": true,
-				"type": "other"
+				"type": "longitude"
 			}
 		}
 	},
@@ -6206,7 +6206,7 @@
 			"BORO_CODE": {
 				"index": 5,
 				"is_spatial": true,
-				"type": "other"
+				"type": "borough"
 			},
 			"BLOCK": {
 				"index": 6,
@@ -6332,7 +6332,7 @@
 			"Y": {
 				"index": 9,
 				"is_spatial": true,
-				"type": "city"
+				"type": "other"
 			},
 			"Location_T": {
 				"index": 10,
@@ -6367,7 +6367,7 @@
 			"BoroCode": {
 				"index": 16,
 				"is_spatial": true,
-				"type": "other"
+				"type": "borough"
 			},
 			"Borough Name": {
 				"index": 17,
@@ -6426,8 +6426,8 @@
 			},
 			"Location (Lat, Long)": {
 				"index": 28,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "longitude"
 			}
 		}
 	},
@@ -7779,7 +7779,7 @@
 			"Borocode": {
 				"index": 3,
 				"is_spatial": true,
-				"type": "other"
+				"type": "borough"
 			},
 			"Block": {
 				"index": 4,
@@ -8115,8 +8115,8 @@
 			},
 			"LONGITUDE": {
 				"index": 13,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "longitude"
 			},
 			"ZIP_CODE": {
 				"index": 14,
@@ -8485,7 +8485,7 @@
 			"Y": {
 				"index": 11,
 				"is_spatial": true,
-				"type": "city"
+				"type": "other"
 			},
 			"Email": {
 				"index": 12,
@@ -9591,7 +9591,7 @@
 			"BOROCODE": {
 				"index": 1,
 				"is_spatial": true,
-				"type": "other"
+				"type": "borough"
 			},
 			"BLOCK": {
 				"index": 2,
@@ -10658,7 +10658,7 @@
 			"BoroID": {
 				"index": 1,
 				"is_spatial": true,
-				"type": "other"
+				"type": "borough"
 			},
 			"Boro": {
 				"index": 2,
@@ -11125,8 +11125,8 @@
 			},
 			"Street": {
 				"index": 17,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "street"
 			},
 			"Census Tract": {
 				"index": 18,
@@ -11849,7 +11849,7 @@
 			"Boro ID": {
 				"index": 3,
 				"is_spatial": true,
-				"type": "other"
+				"type": "borough"
 			},
 			"Boro": {
 				"index": 4,
@@ -12227,7 +12227,7 @@
 			"Borough Code": {
 				"index": 11,
 				"is_spatial": true,
-				"type": "other"
+				"type": "borough"
 			},
 			"Latitude": {
 				"index": 12,
@@ -12307,8 +12307,8 @@
 			},
 			"ProjectSiteAddress": {
 				"index": 6,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "address"
 			},
 			"Acronym": {
 				"index": 7,
@@ -12448,8 +12448,8 @@
 			},
 			"Complainant Zip ": {
 				"index": 14,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "zipcode"
 			},
 			"Longitude": {
 				"index": 15,
@@ -12539,18 +12539,18 @@
 			},
 			"CROSS_STREET_ON": {
 				"index": 14,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "street"
 			},
 			"CROSS_STREET_BETWEEN": {
 				"index": 15,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "street"
 			},
 			"CROSS_STREET_AND": {
 				"index": 16,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "street"
 			},
 			"BUILDING_OWNER_NAME": {
 				"index": 17,
@@ -13264,8 +13264,8 @@
 			},
 			"STATE_CODE": {
 				"index": 14,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "state"
 			},
 			"X_COORDINATE": {
 				"index": 15,
@@ -13667,27 +13667,27 @@
 			"Brooklyn": {
 				"index": 1,
 				"is_spatial": true,
-				"type": "borough"
+				"type": "other"
 			},
 			"Bronx": {
 				"index": 2,
 				"is_spatial": true,
-				"type": "borough"
+				"type": "other"
 			},
 			"Manhattan": {
 				"index": 3,
 				"is_spatial": true,
-				"type": "borough"
+				"type": "other"
 			},
 			"Queens": {
 				"index": 4,
 				"is_spatial": true,
-				"type": "borough"
+				"type": "other"
 			},
 			"Staten Island": {
 				"index": 5,
 				"is_spatial": true,
-				"type": "borough"
+				"type": "other"
 			},
 			"Fax": {
 				"index": 6,
@@ -14389,8 +14389,8 @@
 			},
 			"Owner's  House Street": {
 				"index": 47,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "street"
 			},
 			"City": {
 				"index": 48,
@@ -14702,18 +14702,18 @@
 			},
 			"Property Disposed to Street Name": {
 				"index": 13,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "street"
 			},
 			"Property Disposed to Address Line 2": {
 				"index": 14,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "street"
 			},
 			"Property Disposed to City": {
 				"index": 15,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "city"
 			},
 			"Property Disposed to State": {
 				"index": 16,
@@ -14722,8 +14722,8 @@
 			},
 			"Property Disposed to ZIP": {
 				"index": 17,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "zipcode"
 			},
 			"Description of Restriction": {
 				"index": 18,
@@ -14789,7 +14789,7 @@
 			"BOROUGH_CODE": {
 				"index": 4,
 				"is_spatial": true,
-				"type": "other"
+				"type": "borough"
 			},
 			"WORK_START_DATE": {
 				"index": 5,
@@ -14951,7 +14951,7 @@
 			"Borough Code": {
 				"index": 7,
 				"is_spatial": true,
-				"type": "other"
+				"type": "borough"
 			},
 			"Block": {
 				"index": 8,
@@ -15436,7 +15436,7 @@
 			"region": {
 				"index": 16,
 				"is_spatial": true,
-				"type": "other"
+				"type": "state"
 			},
 			"Postcode": {
 				"index": 17,
@@ -15687,13 +15687,13 @@
 			},
 			"Street Address 1 ": {
 				"index": 9,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "address"
 			},
 			"Street Address 2 ": {
 				"index": 10,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "address"
 			},
 			"Postcode": {
 				"index": 11,
@@ -16480,12 +16480,12 @@
 			"County": {
 				"index": 2,
 				"is_spatial": true,
-				"type": "country"
+				"type": "county"
 			},
 			"Town": {
 				"index": 3,
 				"is_spatial": true,
-				"type": "other"
+				"type": "city"
 			},
 			"WMU": {
 				"index": 4,
@@ -16535,8 +16535,8 @@
 			},
 			"City ": {
 				"index": 4,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "city"
 			},
 			"Borough": {
 				"index": 5,
@@ -17456,8 +17456,8 @@
 			},
 			"COMPARABLE RENTAL 2  Address": {
 				"index": 35,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "address"
 			},
 			"COMPARABLE RENTAL 2  Neighborhood": {
 				"index": 36,
@@ -17845,8 +17845,8 @@
 			},
 			"Zip \nCode": {
 				"index": 4,
-				"is_spatial": false,
-				"type": "n/a"
+				"is_spatial": true,
+				"type": "zipcode"
 			},
 			"Year Awarded": {
 				"index": 5,
@@ -18259,7 +18259,7 @@
 			"borocode": {
 				"index": 8,
 				"is_spatial": true,
-				"type": "other"
+				"type": "borough"
 			},
 			"postcode": {
 				"index": 9,

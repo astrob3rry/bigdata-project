@@ -26,11 +26,18 @@ if __name__ == "__main__":
         dfNameColumnNamesDict = json.loads(f.read())
 
     calAccuracy = CalAccuracy(dfNames, manual, auto, dfNameColumnNamesDict)
-    accuracy = calAccuracy.calculate()
+    accuracy, comparison = calAccuracy.calculate()
     accuracyJson = json.dumps(accuracy)
+    comparisonJson = json.dumps(comparison)
 
     dir_accuracy = os.path.join(outputPath, "accuracy.json")
     if not os.path.exists(dir_accuracy):
         open(dir_accuracy, "w").close()
     with open(dir_accuracy, "w") as outfile:
         outfile.write(accuracyJson)
+
+    dir_comparison = os.path.join(outputPath, "comparison.json")
+    if not os.path.exists(dir_comparison):
+        open(dir_comparison, "w").close()
+    with open(dir_comparison, "w") as outfile:
+        outfile.write(comparisonJson)
