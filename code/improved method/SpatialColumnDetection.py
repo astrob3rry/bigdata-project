@@ -1,12 +1,13 @@
 import pandas as pd
 import sys, os
 import numpy as np
-
+from snapy import MinHash, LSH
 from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
 import random
 import re
 import Settings as Settings
+
 from pyspark.sql import SparkSession
 
 spark = SparkSession.builder.appName("project-test").config("spark.some.config.option", "some-value").getOrCreate()
@@ -15,7 +16,6 @@ spark.sparkContext.addPyFile("/home/wh2099/project/snapy.zip")
 import mmh3
 from snapy import MinHash, LSH
 
-# df is a spark dataframe
 class SpatialColumnDetection:
     def __init__(self, df, defaultFiles, index):
         self.types = Settings.types
@@ -33,11 +33,6 @@ class SpatialColumnDetection:
 
         self.defaultFiles = defaultFiles
         self.index = index
-        # get the dtype dictionary first
-        self.dtypes = {}
-        for keyVal in df.dtypes:
-            self.dtypes[keyVal[0]] = keyVal[1]
-
 
     def initReturnResult(self):
         self.colNameType["file_index"] = str(self.index)
@@ -88,9 +83,9 @@ class SpatialColumnDetection:
         for colName in self.columnNames:
             # change to lower case and trip it
             colNameLwStrip = colName.lower().strip()
-            if self.detectLongitude(colNameLwStrip, colName):
+            if self.detectLongitude(colNameLwStrip, colName, self.df[colName]):
                 type = "longitude"
-            elif self.detectLatitude(colNameLwStrip, colName):
+            elif self.detectLatitude(colNameLwStrip, colName, self.df[colName]):
                 type = "latitude"
             elif self.detectAddress(colNameLwStrip, colName):
                 type = "address"
@@ -137,34 +132,36 @@ class SpatialColumnDetection:
         return False
 
     # TODO: to be finish, colName passed in is lowercase, colNameLw is the lower case and stip()
-    def detectLongitude(self, colNameLw, colName):
+    def detectLongitude(self, colNameLw, colName, column):
         names = ["longitude", "lon"]
-        thredshold = 70
+        thredshold = 75
         if self.commonDetectMethod(colNameLw, names, thredshold):
             return True
         return False
 
     # TODO: use datamart
-    def detectLatitude(self, colNameLw, colName):
-        names = ["latitude", "lat"]
-        thredshold = 70
+    def detectLatitude(self, colNameLw, colName, column):
+        names = ["latitude"]
+        thredshold = 75
         if self.commonDetectMethod(colNameLw, names, thredshold):
             return True
         return False
 
     # list all the country out, count how many of the sample column values are in country list
-    def detectCountry(self, colNameLw, colName):
+    def detectCountry(self, colNameLw,colName):
         # quite similar word
         if "county" in colNameLw:
             return False
         names = ["country"]
-        thredshold = 70
+        thredshold = 100
         if self.commonDetectMethod(colNameLw, names, thredshold):
             return True
+
+        # this not work for "yes" or "no" column because "no" stands for norway
         if (self.dtypes[colName] == object) or (self.dtypes[colName] == "string"):
             dfCountryNames = self.defaultFiles.dfCountryNames
             # sampling and pair wise comparison
-            sampleSize = 800
+            sampleSize = 500
             sampleSize = min(sampleSize, self.df.count())
             columnValuesSample = random.sample(self.df.select(colName).rdd.flatMap(lambda x: x).collect(), sampleSize)
             columnValuesSample = [x for x in columnValuesSample if type(x) == str]
@@ -179,8 +176,10 @@ class SpatialColumnDetection:
             # compare with country code, other wise compare with country full name
             if avgLen <= 2.3:
                 countries = dfCountryNames.select("Code").rdd.flatMap(lambda x: x).collect()
+                countries = [code for code in countries if code != "NO"]
             else:
                 countries = dfCountryNames.select("Name").rdd.flatMap(lambda x: x).collect()
+                countries = [code for code in countries if code != "Norway"]
 
             # equality count
             count = 0
@@ -189,7 +188,7 @@ class SpatialColumnDetection:
                     if value.lower() == country.lower():
                         count += 1
                         break
-            if count / sampleLength > 0.6:
+            if count / sampleLength > 0.7:
                 return True
 
         return False
@@ -197,7 +196,7 @@ class SpatialColumnDetection:
     # list all the state out, fullname and abbreviation, can use sampling
     def detectState(self, colNameLw, colName):
         names = ["state"]
-        thredshold = 70
+        thredshold = 90
         if self.commonDetectMethod(colNameLw, names, thredshold):
             return True
         if (self.dtypes[colName] == object) or (self.dtypes[colName] == "string"):
@@ -205,7 +204,6 @@ class SpatialColumnDetection:
             # sampling and pair wise comparison
             sampleSize = 500
             sampleSize = min(sampleSize, self.df.count())
-            # can this be expressed in df[colName].values
             columnValuesSample = random.sample(self.df.select(colName).rdd.flatMap(lambda x: x).collect(), sampleSize)
             columnValuesSample = [x for x in columnValuesSample if type(x) == str]
             sampleLength = len(columnValuesSample)
@@ -236,13 +234,20 @@ class SpatialColumnDetection:
     # can use sampling
     def detectCity(self, colNameLw, colName):
         names = ["city", "town"]
-        thredshold = 70
-        if self.commonDetectMethod(colNameLw, names, thredshold):
-            return True
+        thredshold = 90
+        # if self.commonDetectMethod(colNameLw, names, thredshold):
+        #     return True
+        # avoid capcity, ethnicity, electricity words
+        for name in names:
+            if colNameLw == name:
+                return True
+        # some column name states, county but have New York inside
+        if self.commonDetectMethod(colNameLw, ["state", "county"], thredshold):
+            return False
         if (self.dtypes[colName] == object) or (self.dtypes[colName] == "string"):
             dfCityNames = self.defaultFiles.dfCityNames
             # sampling and pair wise comparison
-            sampleSize = 1000
+            sampleSize = 500
             sampleSize = min(sampleSize, self.df.count())
             columnValuesSample = random.sample(self.df.select(colName).rdd.flatMap(lambda x: x).collect(), sampleSize)
             columnValuesSample = [x for x in columnValuesSample if type(x) == str]
@@ -298,8 +303,8 @@ class SpatialColumnDetection:
         return False
 
     def detectBorough(self, colNameLw, colName):
-        names = ["borough"]
-        thredshold = 70
+        names = ["borough", "boro", "borocode"]
+        thredshold = 80
         if self.commonDetectMethod(colNameLw, names, thredshold):
             return True
         return False
@@ -307,13 +312,14 @@ class SpatialColumnDetection:
     # need to use sampling
     def detectAddress(self, colNameLw, colName):
         names = ["address", "street", "block"]
-        thredshold = 70
+        thredshold = 80
         if self.commonDetectMethod(colNameLw, names, thredshold):
-            return True
-        if (self.dtypes[colName] == object) or (self.dtypes[colName] == "string"):
+            # add one more condition
+            if self.df[colName].dtype == object:
+                return True
+        if self.df[colName].dtype == object:
             # sampling and pair wise comparison
-            sampleSize = 1000
-
+            sampleSize = 500
             sampleSize = min(sampleSize, self.df.count())
             columnValuesSample = random.sample(self.df.select(colName).rdd.flatMap(lambda x: x).collect(), sampleSize)
             columnValuesSample = [x for x in columnValuesSample if type(x) == str]
@@ -329,8 +335,10 @@ class SpatialColumnDetection:
                 return False
 
             # use regex expression, detect full address
-            regexPattern = """
-            \b\d{1,6} +.{2,25}\b(avenue|ave|court|ct|street|st|drive|dr|lane|ln|road|rd|blvd|plaza|parkway|pkwy|boulevard|)[.,]?(.{0,25} +\b\d{5}\b)?
+            regexPattern ="""
+            \b\d{1,6} +.{2,25}\b(avenue|ave|court|ct|street|st|
+            drive|dr|lane|ln|road|rd|blvd|plaza|parkway|pkwy|
+            boulevard|)[.,]?(.{0,25} +\b\d{5}\b)?
             """
             count = 0
             for x in columnValuesSample:
@@ -342,8 +350,9 @@ class SpatialColumnDetection:
                 return True
 
             # use regex expression to detect street name like
-            regexPattern2 = """
-            \d+[ ](?:[A-Za-z0-9.-]+[ ]?)+(?:Avenue|Lane|Road|Boulevard|Drive|Street|Ave|Dr|Rd|Blvd|Ln|St)\.?
+            regexPattern2 ="""
+            \d+[ ](?:[A-Za-z0-9.-]+[ ]?)+(?:Avenue|Lane|Road|
+            Boulevard|Drive|Street|Ave|Dr|Rd|Blvd|Ln|St)\.?
             """
             count = 0
             for x in columnValuesSample:
@@ -351,7 +360,7 @@ class SpatialColumnDetection:
                 if result != None:
                     if result.group() > 10:
                         count += 1
-            if count / sampleLength > 0.6:
+            if count / sampleLength > 0.7:
                 return True
 
                 # TODO use the addr_detection package

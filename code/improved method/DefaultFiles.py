@@ -6,11 +6,6 @@ spark = SparkSession.builder.appName("project-test").config("spark.some.config.o
 
 class DefaultFiles:
     def __init__(self, inputPath):
-        # self.dfCountryNames = spark.read.format('csv').options(header = 'true', inferschema = 'true').load(inputPath + "/countryNames.csv")
-        # self.dfStateNames = spark.read.format('csv').options(header = 'true', inferschema = 'true').load(inputPath + "/stateNames.csv")
-        # self.dfCityNames = spark.read.format('csv').options(header = 'true', inferschema = 'true').load(inputPath + "/cityNames.csv")
-        # self.dfCountyNames = spark.read.format('csv').options(header = 'true', inferschema = 'true').load(inputPath + "/countyNames.csv")
-        # self.dfNames = spark.read.format('csv').options(header = 'true', inferschema = 'true').load(inputPath + "/metadata.csv")
         self.dfCountryNames = spark.read.format('csv').options(header = 'true', inferschema = 'true').load(os.path.join(inputPath, "countryNames.csv"))
         self.dfStateNames = spark.read.format('csv').options(header = 'true', inferschema = 'true').load(os.path.join(inputPath, "stateNames.csv"))
         self.dfCityNames = spark.read.format('csv').options(header = 'true', inferschema = 'true').load(os.path.join(inputPath, "cityNames.csv"))
