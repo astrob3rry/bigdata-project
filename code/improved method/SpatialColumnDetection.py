@@ -33,6 +33,10 @@ class SpatialColumnDetection:
 
         self.defaultFiles = defaultFiles
         self.index = index
+        # get the dtype dictionary first
+        self.dtypes = {}
+        for keyVal in df.dtypes:
+            self.dtypes[keyVal[0]] = keyVal[1]
 
     def initReturnResult(self):
         self.colNameType["file_index"] = str(self.index)
@@ -83,9 +87,9 @@ class SpatialColumnDetection:
         for colName in self.columnNames:
             # change to lower case and trip it
             colNameLwStrip = colName.lower().strip()
-            if self.detectLongitude(colNameLwStrip, colName, self.df[colName]):
+            if self.detectLongitude(colNameLwStrip, colName):
                 type = "longitude"
-            elif self.detectLatitude(colNameLwStrip, colName, self.df[colName]):
+            elif self.detectLatitude(colNameLwStrip, colName):
                 type = "latitude"
             elif self.detectAddress(colNameLwStrip, colName):
                 type = "address"
@@ -132,7 +136,7 @@ class SpatialColumnDetection:
         return False
 
     # TODO: to be finish, colName passed in is lowercase, colNameLw is the lower case and stip()
-    def detectLongitude(self, colNameLw, colName, column):
+    def detectLongitude(self, colNameLw, colName):
         names = ["longitude", "lon"]
         thredshold = 75
         if self.commonDetectMethod(colNameLw, names, thredshold):
@@ -140,7 +144,7 @@ class SpatialColumnDetection:
         return False
 
     # TODO: use datamart
-    def detectLatitude(self, colNameLw, colName, column):
+    def detectLatitude(self, colNameLw, colName):
         names = ["latitude"]
         thredshold = 75
         if self.commonDetectMethod(colNameLw, names, thredshold):
@@ -315,9 +319,9 @@ class SpatialColumnDetection:
         thredshold = 80
         if self.commonDetectMethod(colNameLw, names, thredshold):
             # add one more condition
-            if self.df[colName].dtype == object:
+            if (self.dtypes[colName] == object) or (self.dtypes[colName] == "string"):
                 return True
-        if self.df[colName].dtype == object:
+        if (self.dtypes[colName] == object) or (self.dtypes[colName] == "string"):
             # sampling and pair wise comparison
             sampleSize = 500
             sampleSize = min(sampleSize, self.df.count())

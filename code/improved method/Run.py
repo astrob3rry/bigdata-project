@@ -21,7 +21,7 @@ if __name__ == "__main__":
     outputPath = sys.argv[3]
 
     defaultFiles = DefaultFiles(inputPath2)
-    dfNames = defaultFiles.dfNames["file_name"].values
+    dfNames = defaultFiles.dfNames.select("file_name").rdd.flatMap(lambda x: x).collect()
 
     results = {}
     dfNameColumnNamesDict = {}
@@ -30,46 +30,54 @@ if __name__ == "__main__":
 
     try:
         for i in range(len(dfNames)):
-            # try:
-            dfName = dfNames[i]
-            df = spark.read.format('csv').options(header = 'true', inferschema = 'true').load(
-                os.path.join(inputPath, dfName)).limit(limitRow)
+            try:
+                dfName = dfNames[i]
+                df = spark.read.format('csv').options(header = 'true', inferschema = 'true').load(
+                    os.path.join(inputPath, dfName)).limit(limitRow)
 
-            print("finished reading the {0} file {1}, rows {2}, columns {3}".format(i, dfName, len(df), len(df.columns)))
-            # TODO better to save this and run
-            dfNameColumnNamesDict[dfName] = list(df.columns.values)
+                print("finished reading the {0} file {1}, rows {2}, columns".format(i, dfName,
+                                                                                    df.count(), len(df.columns)))
+                # TODO better to save this and run
+                dfNameColumnNamesDict[dfName] = [colName for colName in df.columns]
 
-            spatialColumnDetection = SpatialColumnDetection(df, defaultFiles, i)
-            results[dfName] = spatialColumnDetection.detect()
-            # TODO: change to logger?
-            print("finished the {0} file {1}".format(i, dfName))
-            # except:
-            #     print("error with the {0} file {1}".format(i, dfName))
+                spatialColumnDetection = SpatialColumnDetection(df, defaultFiles, i)
+                results[dfName] = spatialColumnDetection.detect()
+                # TODO: change to logger?
+                print("finished the {0} file {1}".format(i, dfName))
+            except:
+                print("error with the {0} file {1}".format(i, dfName))
     except:
         print("error with the {0} file {1}".format(i, dfName))
-        resultsJson = json.dumps(results)
-        dfNameColNameDictJson = json.dumps(dfNameColumnNamesDict)
+        # resultsJson = json.dumps(results)
+        # dfNameColNameDictJson = json.dumps(dfNameColumnNamesDict)
 
         dir_result = os.path.join(outputPath, "result.json")
         dir_dfNameColNamesDict = os.path.join(outputPath, "dfNameColNamesDict.json")
-        if not os.path.exists(dir_result):
-            open(dir_result, "w").close()
-        if not os.path.exists(dir_dfNameColNamesDict):
-            open(dir_dfNameColNamesDict, "w").close()
-        with open(dir_result, "w") as outfile:
-            outfile.write(resultsJson)
-        with open(dir_dfNameColNamesDict, "w") as outfile:
-            outfile.write(dfNameColNameDictJson)
 
+        df_result = pd.DataFrame([results])
+        df_dfNameColNamesDict = pd.DataFrame([dfNameColumnNamesDict])
+
+        dfspark_result = spark.createDataFrame(df_result)
+        dfspark_dfNameColNamesDict = spark.createDataFrame(df_dfNameColNamesDict)
+
+        dfspark_result.coalesce(1).write.format('json').save(dir_result)
+        print("finished saving result.json")
+        dfspark_dfNameColNamesDict.coalesce(1).write.format('json').save(dir_dfNameColNamesDict)
+        print("finished saving dfNameColNamesDict.json")
+
+    # save file after finished
     dir_result = os.path.join(outputPath, "result.json")
     dir_dfNameColNamesDict = os.path.join(outputPath, "dfNameColNamesDict.json")
-    if not os.path.exists(dir_result):
-        open(dir_result, "w").close()
-    if not os.path.exists(dir_dfNameColNamesDict):
-        open(dir_dfNameColNamesDict, "w").close()
-    resultsJson = json.dumps(results)
-    dfNameColNameDictJson = json.dumps(dfNameColumnNamesDict)
-    with open(os.path.join(outputPath, "result.json"), "w") as outfile:
-        outfile.write(resultsJson)
-    with open(os.path.join(outputPath, "dfNameColNamesDict.json"), "w") as outfile:
-        outfile.write(dfNameColNameDictJson)
+
+    df_result = pd.DataFrame([results])
+    df_dfNameColNamesDict = pd.DataFrame([dfNameColumnNamesDict])
+
+    dfspark_result = spark.createDataFrame(df_result)
+    dfspark_dfNameColNamesDict = spark.createDataFrame(df_dfNameColNamesDict)
+
+    dfspark_result.coalesce(1).write.format('json').save(dir_result)
+    print("finished saving result.json")
+    dfspark_dfNameColNamesDict.coalesce(1).write.format('json').save(dir_dfNameColNamesDict)
+    print("finished saving dfNameColNamesDict.json")
+
+
