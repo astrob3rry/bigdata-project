@@ -40,9 +40,21 @@ We recommend you install the following packages before you run the code:
 //todo
 
 ### Improved Method
+To Run in HDSF, follow the below steps
 
-//todo
+1. Put all the datasets in the `data` folder, store `countryNames.csv`, `stateNames.csv`, `cityNames.csv`, `countyNames.csv`, `metadata.csv` into the `helper` folder for reading as default helper files. Also upload the mmh3.py and snapy.zip to remote computer
 
+2. Run the automactically identification procedure `Run.py`. Specify the datasets folder, helper folder, output folder as sys.argv[1], sys.argv[2], sys.argv[3], run the below command 
+```shell
+spark-submit --conf spark.pyspark.python=/share/apps/python/3.6.5/bin/python --py-files /home/path~/mmh3.py --py-files /home/path~/snapy.zip /path~/Run.py /user/path~/data /user/path~/helper /user/path~/out
+```
+Then we can output two files `result.json` and `dfNameColNamesDict.json`. `result.json` is the automactically identification result and `dfNameColNamesDict.json` is storing the column names for each dataset file name
+
+3. Calculate the accuracy using `result.json` and `metadata.json` (benchmark result). Specify the output file path as sys.argv[1], helper folder as sys.argv[2], output folder as sys.argv[3], run the below command.
+```shell
+spark-submit --conf spark.pyspark.python=/share/apps/python/3.6.5/bin/python --py-files /home/path~/mmh3.py --py-files /home/path~/snapy.zip RunAccuracy.py /user/path~/out /user/path~/helper /user/path~/out2
+```
+Then we can output two files `accuracy.json` which stores the TP (true positive), FP, FN, TN overall and for each spatial type and `comparison.json` which stores the difference between benchmark and automactically detection result.
 ### Exploration Work
 
 #### Quality Analysis
