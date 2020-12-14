@@ -36,8 +36,11 @@ We recommend you install the following packages before you run the code:
 ## How to Run
 
 ### Original Method
+Since this method use lots of package, it would be hard to run on NYU HPC. We run it on our local machine.
 
-//todo
+1. Download all the datasets in the Google Drive(~150 csv files). Put all the datasets in the `datasets` folder, make sure it's in "C://"
+
+2. Run all the cells in order in col_name_analysis.ipynb
 
 ### Improved Method
 To Run in HDSF, follow the below steps
