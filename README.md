@@ -23,35 +23,35 @@ We put our 150 datasets selected from NYC Open Data in the [Google Drive](https:
 
 We recommend you install the following packages before you run the code:
 
+- [Jupyter Notebook](https://jupyter.org/install)
 - [Datamart Geo](https://pypi.org/project/datamart-geo)
-
 - [Datamart Profiler](https://pypi.org/project/datamart-profiler/) 
 - [Pandas](https://github.com/pandas-dev/pandas)
-
 - [Spark](https://github.com/apache/spark)
-
 - [FuzzyWuzzy](https://github.com/seatgeek/fuzzywuzzy) 
 - [PyDeequ](https://github.com/awslabs/python-deequ)
 
 ## How to Run
 
 ### Original Method
-Since this method use lots of package, it would be hard to run on NYU HPC. We run it on our local machine.
+Since this method uses Datamart, whose API is not compatible with Spark. Therefore, this method should be run locally.
 
-1. Download all the datasets in the Google Drive(~150 csv files). Put all the datasets in the `datasets` folder, make sure it's in "C://"
+1. Download all the 150 datasets in the Google Drive. Put all the datasets in the `datasets` folder, make sure it's in `C://`, or change the path in `col_name_analysis.ipynb` accordingly.
 
-2. Run all the cells in order in col_name_analysis.ipynb
+2. Open `col_name_analysis.ipynb` in Jupyter Notebook, and run all the cells in order.
 
 ### Improved Method
-To Run in HDSF, follow the below steps
+To run on Spark, follow the steps below.
 
-1. Put all the datasets in the `data` folder, store `countryNames.csv`, `stateNames.csv`, `cityNames.csv`, `countyNames.csv`, `metadata.csv` into the `helper` folder for reading as default helper files. Also upload the mmh3.py and snapy.zip to remote computer
+1. Put all the datasets in the `data` folder, and store `countryNames.csv`, `stateNames.csv`, `cityNames.csv`, `countyNames.csv`, `metadata.csv` into the `helper` folder as default helper files for later reading. Also, upload  `mmh3.py` and `snapy.zip` to the remote cluster.
 
-2. Run the automactically identification procedure `Run.py`. Specify the datasets folder, helper folder, output folder as sys.argv[1], sys.argv[2], sys.argv[3], run the below command 
+2. Run `Run.py`. Specify the datasets folder, helper folder, output folder as `sys.argv[1]`, `sys.argv[2]`, `sys.argv[3]`, and then run the command below.
 ```shell
 spark-submit --conf spark.pyspark.python=/share/apps/python/3.6.5/bin/python --py-files /home/path~/mmh3.py --py-files /home/path~/snapy.zip /path~/Run.py /user/path~/data /user/path~/helper /user/path~/out
 ```
-Then we can output two files `result.json` and `dfNameColNamesDict.json`. `result.json` is the automactically identification result and `dfNameColNamesDict.json` is storing the column names for each dataset file name
+Then we can output two files `result.json` and `dfNameColNamesDict.json`. 
+
+`result.json` is the automatically generated result and `dfNameColNamesDict.json` stores the column names for each dataset.
 
 3. Calculate the accuracy using `result.json` and `metadata.json` (benchmark result). Specify the output file path as sys.argv[1], helper folder as sys.argv[2], output folder as sys.argv[3], run the below command.
 ```shell
@@ -64,7 +64,7 @@ Then we can output two files `accuracy.json` which stores the TP (true positive)
 
 1. Download all the datasets in the Google Drive, together with `metadata.json`, `uscities.csv`, and `uszips.csv` in the `data` folder. 
 
-2. Store all these files in HDFS. In our case, we store all the datasets in the `data` directory, while all the other metadata in the root directory under our account folder.
+2. Store all these files in HDFS. In our case, we store all the datasets in the `data` directory, while all the other metadata in the root directory under the user’s root folder.
 
 3. If you do not have the authority to install packages in the cluster, you could download the jar file and the source code for `pydeequ` that we put in the `lib` folder, and then pass them as arguments when you submit your spark job. 
 
