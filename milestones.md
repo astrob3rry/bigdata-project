@@ -122,10 +122,10 @@ Check [metadata.csv](https://github.com/astrob3rry/spatial-data-profiling/blob/m
 #### :runner: ​Sprint 2: 2020.12.03 - 2020.12.06
 
 - :warning: Deploy our current code using Spark. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
-  - <u>*Since our project actually doesn’t perfectly fit into a map reduce programming model(we only have a map phase), it’s hard to refactor our current code using pyspark. Also, some libraries we are currently using are only compatible with pandas dataframe. This task is way harder than we have imagined it to be, therefore we couldn’t finish it on time.*</u>
+  - <u>*Since our project actually doesn’t perfectly fit into a map reduce programming model(we only have a map phase), it’s hard to refactor our current code using pyspark. Also, some libraries we are currently using are only compatible with pandas dataframe. This task is a lot harder than we have expected, therefore we couldn’t finish it on time.*</u>
 -  :heavy_check_mark: Discuss when and why our improved profiling approach fails. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
 
-### Week 4: 2020.12.07 - 2020.12.13 ![ongoing](https://progress-bar.dev/80/?title=ongoing)
+### Week 4: 2020.12.07 - 2020.12.13 ![done](https://progress-bar.dev/100/?title=done)
 
 #### :runner: Sprint 1: 2020.12.07 - 2020.12.11
 
@@ -138,5 +138,5 @@ Check [metadata.csv](https://github.com/astrob3rry/spatial-data-profiling/blob/m
 
 #### :runner: Sprint 2: 2020.12.12 - 2020.12.13
 
-- Make presentation slides.  [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
-- Prepare for the project presentation. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
+- :heavy_check_mark: Make presentation slides. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)
+- :heavy_check_mark: Prepare for the project presentation. [@Weili He](https://github.com/WeiliHe), [@Xianbo Gao](https://github.com/gaogxb), [@Jiangfeng Lin](https://github.com/astrob3rry)

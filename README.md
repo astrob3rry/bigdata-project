@@ -1,10 +1,10 @@
-# Spatial Data Profiling
+# Spatial Data Profiling: Automating Spatial Attribute Detection at Scale Based on NYC Open Data
 
 ## Description
 
 In reality, open data repositories usually do not provide rich summaries about spatial data. Take NYC Open Data for example, it labels the datasets in a coarse way. There are different categories based on the industries, and different data types, agencies, and tags. However, none of these metadata offers much help for the data consumers to quickly identify the spatial data that they actually need. 
 
-Based on this context, Therefore, the problem that this project aims to automate the process of spatial data attributes detection, therefore being able to provide informative spatial metadata about any input open datasets. Our solution should also be scalable, so it can process a large volume of datasets in one go. In particular, our focus of the data source is [NYC Open Data](https://opendata.cityofnewyork.us). 
+Based on this context, the problem that this project aims to solve is to automate the process of spatial data attributes detection, providing informative spatial metadata about any input open datasets. Our solution should also be scalable, so it can process a large volume of datasets in one go. In particular, our focus of the data source is [NYC Open Data](https://opendata.cityofnewyork.us). 
 
 ## Data
 
